@@ -7,11 +7,20 @@
   </head>
   <body>
     <form id="form">
-      <label for="">Введите запрос</label>
+      <label for="query">Введите запрос</label>
       <input type="text" id="query" name="query" placeholder="search" />
+      <label for="perPage">Кол-во ответов</label>
+      <input
+        type="number"
+        id="perPage"
+        name="perPage"
+        placeholder="введите число"
+      />
+      <label for="page">Кол-во страниц</label>
+      <input type="number" id="page" name="page" placeholder="введите число" />
       <button class="searchBtn" type="submit">Найти</button>
     </form>
-    <h2>результаты запроса</h2>
+    <h2>Результаты запроса</h2>
     <ul id="result"></ul>
     <button type="button" id="button">Load more</button>
   </body>
