@@ -6,17 +6,18 @@ const result = document.getElementById("result");
 const button = document.getElementById("button");
 const queryInput = document.getElementById("query");
 const inputs = document.querySelectorAll("input");
-console.log(inputs);
+const box = document.querySelector(".box");
+// console.log(inputs);
 let totalFocus = 0;
 inputs.forEach((input) => {
   input.addEventListener("blur", (event) => {
     // console.log(event);
-    console.log("blur:", event.target.id);
-    event.target.style.background = "red";
+    // console.log("blur:", event.target.id);
+    event.target.style.background = "blue";
   });
   input.addEventListener("focus", (event) => {
-    totalFocus = totalFocus + 1; 
-    console.log("totalFocus",totalFocus);
+    totalFocus = totalFocus + 1;
+    // console.log("totalFocus",totalFocus);
   });
 });
 // console.log(form, result, button);
@@ -32,7 +33,7 @@ const query = "небо";
 // console.log(itemTemplate);
 
 // вешаем слушателя событий на форму (потому что удобней на родителя)
-form.addEventListener("≠", (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault(); //только у события submit
   if (
     event.target.elements.query.value === "" ||
@@ -74,3 +75,32 @@ form.addEventListener("≠", (event) => {
 //   console.log(event);
 //   console.log(event.target);
 // });
+form.addEventListener("keydown", (event) => {
+  console.log(event);
+  console.log(event.code, event.key, event.keyCode);
+});
+box.addEventListener("click", (event) => {
+  console.log(event.target.dataset);
+  if (event.target.dataset.color === "red") {
+    event.target.classList.add("red");
+  }
+  if (event.target.dataset.color === "green") {
+    event.target.classList.add("green");
+  }
+  if (event.target.dataset.color === "blue") {
+    event.target.classList.add("blue");
+  }
+});
+window.addEventListener("keydown",(event)=>{
+ if(event.code ==="Escape"){
+   console.log(box.children);
+  //  преобразование коллекции элементов в массив 
+  const children = [...box.children];
+  children.forEach((child)=>{
+    child.classList.remove("red","green","blue")
+
+  })
+ }
+
+
+})

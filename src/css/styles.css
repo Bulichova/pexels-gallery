@@ -31,3 +31,30 @@ body {
   transition: all 1500ms ease-out;
   color: white;
 }
+
+.box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 50px;
+  margin: 50px;
+}
+.innerBox {
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+}
+.red {
+  background: red;
+}
+.green {
+  background: green;
+}
+.blue {
+  background: blue;
+}
+.innerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
